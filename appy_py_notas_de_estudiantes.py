@@ -199,13 +199,13 @@ else:
     fig, ax = plt.subplots(figsize=(7, 4))
 
     if tipo_grafico == "Notas por estudiante":
-      ax.bar(filtrado["Estudiante"], filtrado["Promedio"], color="#1f77b4")
-      ax.set_ylabel("Promedio de notas")
-      ax.set_xlabel("Estudiante")
+      plt.bar(filtrado["Estudiante"], filtrado["Promedio"], color="#1f77b4")
+      plt.set_ylabel("Promedio de notas")
+      plt.set_xlabel("Estudiante")
       plt.xticks(rotation=45, ha="right")
-      ax.axhline(y=4.0, color="red", linestyle="--", label="Aprobación: 4,0")
-      ax.legend(loc="upper right", fontsize=8)
-      ax.set_title("Promedio por estudiante")
+      plt.axhline(y=4.0, color="red", linestyle="--", label="Aprobación: 4,0")
+      plt.legend(loc="upper right", fontsize=8)
+      plt.set_title("Promedio por estudiante")
     else:
       prom_seccion = filtrado.groupby("Sección")["Promedio"].mean()
       ax.bar(prom_seccion.index, prom_seccion.values, color="#ff7f0e")
